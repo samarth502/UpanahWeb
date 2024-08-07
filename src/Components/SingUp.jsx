@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useProfile } from "../store/Auth";
 import { validateEmail, validateName, validatePassword, validateUserType, validateVendorFields } from "../Validations/Validations";
+import userService from "../Services/UserServices";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -64,7 +65,13 @@ export default function SignUp() {
         DOB: "",
       };
 
-      await resisterUser(userData);
+     const signData =  await userService.createUser(userData)
+
+     if(!signData){
+      console.log("yahi error ha")
+     }
+     console.log("new data" , signData)
+
       toast.success("User registered successfully!", {
         position: "top-right",
         autoClose: 3000,

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles.css */
+/* styles.css */
+@keyframes gentleFloat {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-gentleFloat {
+    animation: gentleFloat 6s ease-in-out infinite;
+  }
+  

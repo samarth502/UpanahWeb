@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { validateEmail, validatePassword } from "../Validations/Validations";
+import userService from "../Services/UserServices";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,39 +29,28 @@ export default function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/users");
-      if (!response.ok) {
-        throw new Error("Failed to fetch users.");
+      const loginUser = await userService.getUsers(email, password);
+      console.log('Logged in user:', loginUser);
+
+      if(loginUser){
+
+        
+              toast.success("Logged in successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
+      }else{
+        toast.error("Invalid email or password");
       }
-      const users = await response.json();
-      const user = users.find((u) => u.email === email && u.password === password);
 
-      if (!user) {
-        throw new Error("Invalid email or password.");
-      }
-
-      // Assuming successful login, you might set authentication tokens or sessions here.
-      toast.success("Logged in successfully!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-
-      navigate("/home"); // Redirect to home page after successful login
+    
     } catch (error) {
-      toast.error(error.message || "Failed to login.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      console.error('Login error:', error); // Log error for debugging
     } finally {
       setSubmitting(false);
     }

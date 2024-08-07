@@ -1,63 +1,22 @@
 {
   "users": [
     {
-      "id": "61be",
-      "name": "samarth",
+      "id": "3259",
+      "name": "Samarth Devli",
       "email": "samarthdevlibtech@gmail.com",
       "password": "Sam@12345",
       "userType": "customer",
-      "addresses": [
-        "plot no 10 pragati nagar indira nagar Lucknow",
-        "India"
-      ],
-      "phone": "07905353798",
-      "profilePic": "",
-      "DOB": ""
-    },
-    {
-      "id": "af13",
-      "name": "anamika",
-      "email": "samarthdevlibtech11@gmail.com",
-      "password": "Sam@12345",
-      "userType": "customer",
       "addresses": [],
       "phone": "",
       "profilePic": "",
       "DOB": ""
     },
     {
-      "id": "f35d",
-      "name": "sss",
-      "email": "sam@gmail.com",
-      "password": "1234567",
-      "userType": "customer",
-      "addresses": [],
-      "phone": "",
-      "profilePic": "",
-      "DOB": ""
-    },
-    {
-      "id": "28ee",
-      "name": "sss",
-      "email": "sam@gmail.com",
-      "password": "123456",
-      "userType": "customer",
-      "addresses": [],
-      "phone": "",
-      "profilePic": "",
-      "DOB": ""
-    },
-    {
-      "id": "338d",
-      "name": "sam",
+      "id": "fcd0",
+      "name": "Samarth Devli",
       "email": "samarthdevlibtech@gmail.com",
-      "password": "Sam@12345",
-      "userType": "vendor",
-      "firstName": "samarth",
-      "lastName": "devli",
-      "vendorName": "sam",
-      "gstNumber": "12345",
-      "address": "plot no 10 pragati nagar indira nagar Lucknow,India\nNear takrohi market",
+      "password": "Sam,@12345",
+      "userType": "customer",
       "addresses": [],
       "phone": "",
       "profilePic": "",

@@ -10,6 +10,7 @@ import UserProfile from './Components/UserProfile';
 import SingUp from './Components/SingUp';
 import ProductImageZoom from './Components/ProductImageZoom';
 import CameraCapture from './Components/CameraCapture';
+import Banner from './Components/Banner';
 
 
 const router = createBrowserRouter([
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path:"/pro",
+    path:"/cameracapture",
     element:<CameraCapture/>
   },
   {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       'https://m.media-amazon.com/images/I/41gXKb8ruLL._SX679_.jpg',
       'https://m.media-amazon.com/images/I/41vp+ldrTXL._SY300_SX300_.jpg'
     ]} />
+  },
+  {
+    path:'/banner',
+    element:<Banner/>
+
   }
 ]);
 

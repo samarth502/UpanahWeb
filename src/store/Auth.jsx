@@ -1,4 +1,5 @@
 import {  createContext, useContext, useEffect, useState } from "react";
+import userService from "../Services/UserServices";
 
 
  const UserContext = createContext();
@@ -35,29 +36,28 @@ import {  createContext, useContext, useEffect, useState } from "react";
       }
     };
 
-    const resisterUser = async(userData)=>{
+    // const resisterUser = async(userData)=>{
 
-      try {
-        const response = await fetch('http://localhost:3001/users' ,{
-          method:"POST",
-          headers:{
-            'Content-Type':'application/json',
+    //   try {
+    //     const response = await fetch('http://localhost:3001/users' ,{
+    //       method:"POST",
+    //       headers:{
+    //         'Content-Type':'application/json',
 
-          },
-          body:JSON.stringify(userData)
-        });
-        if(!response.ok){
-          throw new Error("Failed to register user.");
-        }
+    //       },
+    //       body:JSON.stringify(userData)
+    //     });
+    //     if(!response.ok){
+    //       throw new Error("Failed to register user.");
+    //     }
 
-        fetchUserData();
-      } catch (error) {
-        setError(error)
+    //     fetchUserData();
+    //   } catch (error) {
+    //     setError(error)
         
-      }
+    //   }
 
-    }
-  
+    // }
 
     useEffect(()=>{
       fetchUserData()
@@ -65,7 +65,7 @@ import {  createContext, useContext, useEffect, useState } from "react";
 
 
     return (
-        <UserContext.Provider value={{user , loading , error ,resisterUser}}>
+        <UserContext.Provider value={{user , loading , error }}>
             {children}
         </UserContext.Provider>
     )
