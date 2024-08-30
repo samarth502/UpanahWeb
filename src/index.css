@@ -19,4 +19,25 @@
   .animate-gentleFloat {
     animation: gentleFloat 6s ease-in-out infinite;
   }
+  .camera-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .close-button, .capture-button {
+    background: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
   

@@ -56,6 +56,8 @@ const userService = {
     const data = await response.json();
     return data;
   },
+
+ 
 };
 
 export default userService;

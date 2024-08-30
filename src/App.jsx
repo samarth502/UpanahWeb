@@ -7,25 +7,21 @@ import {
 import Home from './Components/Home';
 import Login from './Components/Login';
 import UserProfile from './Components/UserProfile';
-import SingUp from './Components/SingUp';
+// import SingUp from './Components/SingUp';
 import ProductImageZoom from './Components/ProductImageZoom';
-// import CameraCapture from './Components/CameraCapture';
 import Banner from './Components/Banner';
-// import SearchInput from './Components/SearchInput';
-import SearchBar from './Components/SearchBar';
+import SearchBarWithCamera from './Components/SearchBarWithCamera';
+
 
 
 const router = createBrowserRouter([
 
-
   {
-    path: "/",
-    element: <SingUp/>,
-  },
-  {
-    path:"/home",
+    path:"/",
     element:<Home/>
   },
+
+  
   {
     path:"/login",
     element:<Login/>
@@ -35,10 +31,7 @@ const router = createBrowserRouter([
     element:<UserProfile/>
   },
 
-  {
-    path:"/searchbar",
-    element:<SearchBar/>
-  },
+  
   {
     path:'/img',
     element: <ProductImageZoom imageUrls={[
@@ -51,13 +44,20 @@ const router = createBrowserRouter([
     path:'/banner',
     element:<Banner/>
 
-  }
-  ,
+  },
   {
-    path:'/searchOne',
-    element:<SearchBar/>
+    path:'/search',
+    element:<SearchBarWithCamera/>
 
   }
+  ,
+  // {
+  //   path:'/megamenus',
+  //   element:<Navbar/>
+
+  // }
+  
+  
 ]);
 
 function App() {

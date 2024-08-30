@@ -1,102 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { MdCameraAlt } from 'react-icons/md';
+import React from 'react';
 
 const SearchBar = () => {
-  const [isFocused, setIsFocused] = useState(false);
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  const [stream, setStream] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
-
-  const handleCameraSearch = async () => {
-    if (isMobile) {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        setStream(stream);
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-          videoRef.current.play();
-        }
-      } catch (err) {
-        console.error('Error accessing the camera:', err);
-      }
-    }
-  };
-
-  const captureImage = async () => {
-    if (videoRef.current && canvasRef.current) {
-      const context = canvasRef.current.getContext('2d');
-      context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
-      const image = canvasRef.current.toDataURL('image/png');
-
-      // Send image data to the server to find the product
-      const response = await fetch('http://localhost:5173/products', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image }),
-      });
-      const result = await response.json();
-
-      if (result.product) {
-        alert(`Product found: ${result.product.name}`);
-      } else {
-        alert('No product found.');
-      }
-
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-        setStream(null);
-      }
-    }
-  };
-
   return (
-    <div className="relative flex items-center">
+    <div className="relative text-gray-600">
       <input
-        type="text"
+        type="search"
+        name="search"
         placeholder="Search"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        className="w-full p-2 text-gray-700 border border-gray-300 rounded"
+        className="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"
       />
-      {isMobile && (
-        <button
-          className="absolute right-0 p-2 m-2 text-gray-500"
-          onClick={handleCameraSearch}
-          aria-label="Search with Camera"
+      <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
+        <svg
+          className="h-4 w-4 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 56.966 56.966"
+          xmlSpace="preserve"
+          width="512px"
+          height="512px"
         >
-          <MdCameraAlt className="w-6 h-6" />
-        </button>
-      )}
-      <video ref={videoRef} style={{ display: 'none' }} />
-      <canvas ref={canvasRef} style={{ display: 'none' }} width="640" height="480" />
-      {stream && (
-        <>
-          <button onClick={captureImage} className="absolute right-0 bottom-0 p-2 m-2 text-white bg-blue-500 rounded">
-            Capture Image
-          </button>
-          <div className="absolute inset-x-0 top-full flex justify-center p-2 bg-white border-t border-gray-300">
-            <video ref={videoRef} autoPlay className="w-full h-full" />
-          </div>
-        </>
-      )}
+          <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+        </svg>
+      </button>
     </div>
   );
 };
