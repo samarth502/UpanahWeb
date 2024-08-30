@@ -22,5 +22,10 @@
       "profilePic": "",
       "DOB": ""
     }
-  ]
-}
+  ],
+  
+    "products": [
+      { "id": 1, "name": "Product 1", "image": "base64_image_data" },
+      { "id": 2, "name": "Product 2", "image": "base64_image_data" }  
+    ]
+  }

@@ -9,8 +9,10 @@ import Login from './Components/Login';
 import UserProfile from './Components/UserProfile';
 import SingUp from './Components/SingUp';
 import ProductImageZoom from './Components/ProductImageZoom';
-import CameraCapture from './Components/CameraCapture';
+// import CameraCapture from './Components/CameraCapture';
 import Banner from './Components/Banner';
+// import SearchInput from './Components/SearchInput';
+import SearchBar from './Components/SearchBar';
 
 
 const router = createBrowserRouter([
@@ -34,8 +36,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path:"/cameracapture",
-    element:<CameraCapture/>
+    path:"/searchbar",
+    element:<SearchBar/>
   },
   {
     path:'/img',
@@ -48,6 +50,12 @@ const router = createBrowserRouter([
   {
     path:'/banner',
     element:<Banner/>
+
+  }
+  ,
+  {
+    path:'/searchOne',
+    element:<SearchBar/>
 
   }
 ]);
