@@ -8,7 +8,6 @@ const UserProfile = () => {
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
   const [profileImage, setProfileImage] = useState(null);
 
   useEffect(() => {
@@ -39,10 +38,6 @@ const UserProfile = () => {
       return;
     }
 
-    // if (password !== confirmPassword) {
-    //   alert('Passwords do not match.');
-    //   return;
-    // }
 
     const formData = new FormData();
     formData.append('name', firstName);
@@ -213,17 +208,6 @@ const UserProfile = () => {
                   />
                 </div>
 
-                {/* <div className="w-full mb-4">
-                  <label htmlFor="confirmPassword" className="mb-2 dark:text-gray-300">Confirm Password</label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-                </div> */}
               </div>
               <button
                 type="submit"

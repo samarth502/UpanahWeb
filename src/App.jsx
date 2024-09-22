@@ -4,13 +4,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './Components/Home';
 import Login from './Components/Login';
 import UserProfile from './Components/UserProfile';
 // import SingUp from './Components/SingUp';
 import ProductImageZoom from './Components/ProductImageZoom';
-import Banner from './Components/Banner';
-import SearchBarWithCamera from './Components/SearchBarWithCamera';
+// import Banner from './Components/Banner';
+import SignUp from './Components/SingUp';
+import Home from './Components/home/Home';
+import Bannerss from './Components/Bannerss';
+// import MegaMenu from './Components/MegaMenu';
 
 
 
@@ -40,22 +42,9 @@ const router = createBrowserRouter([
       'https://m.media-amazon.com/images/I/41vp+ldrTXL._SY300_SX300_.jpg'
     ]} />
   },
-  {
-    path:'/banner',
-    element:<Banner/>
+  
 
-  },
-  {
-    path:'/search',
-    element:<SearchBarWithCamera/>
 
-  }
-  ,
-  // {
-  //   path:'/megamenus',
-  //   element:<Navbar/>
-
-  // }
   
   
 ]);

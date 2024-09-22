@@ -10,7 +10,7 @@ import userService from "../Services/UserServices";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { resisterUser } = useProfile();
+  // const { resisterUser } = useProfile();
   const [userType, setUserType] = useState("");
   const [vendorSectionHeight, setVendorSectionHeight] = useState(0);
   const [submitting, setSubmitting] = useState(false);

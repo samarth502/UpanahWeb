@@ -2,7 +2,7 @@
 import React from 'react';
 import { shoes } from './shoes'; // Import the shoe data
 
-const Banner = () => {
+const Bannerss = () => {
   // Define non-overlapping positions for the bubbles
   const positions = [
     { left: '5%', top: '10%' },
@@ -40,4 +40,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Bannerss;
