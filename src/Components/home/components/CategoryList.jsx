@@ -7,13 +7,26 @@ const CategoryList = () => {
     const [loading, setLoading] = useState(false);
 
     const categoryLoading = new Array(13).fill(null);
+    console.log(categoryProduct,"kkkkkkkkkkkmmmmmmmmm")
 
     const fetchCategoryProduct = async () => {
         setLoading(true);
-        const productsss = await ProductsServices.getProducts();
+        const products = await ProductsServices.getProducts();
+
+        // Get unique categories and only one product per category
+        const productByCategory = [];
+        const seenCategories = new Set();
+
+        // Iterate through products and select the first one per category
+        for (const product of products) {
+            if (!seenCategories.has(product.category)) {
+                productByCategory.push(product);
+                seenCategories.add(product.category);
+            }
+        }
+
         setLoading(false);
-        setCategoryProduct(productsss);
-        console.log('myProducts', productsss);
+        setCategoryProduct(productByCategory); // Store unique category products
     };
 
     useEffect(() => {
@@ -38,16 +51,17 @@ const CategoryList = () => {
                           >
                               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden p-4 bg-slate-200 flex items-center justify-center">
                                   <img
-                                      src={product?.images}
+                                      src={product?.thumbnail}
                                       alt={product?.category}
                                       className="h-full object-scale-down mix-blend-multiply hover:scale-125 transition-all"
                                   />
                               </div>
                               <p className="text-center text-sm md:text-base capitalize">{product?.category}</p>
+                              {/* <p>{product.images[0]}</p> */}
                           </Link>
                       ))}
             </div>
-        </div>
+        </div>  
     );
 };
 

@@ -387,21 +387,22 @@ export default function ProductList() {
 
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                       {products.map((product) => (
-                        <div key={product.id} className="group relative">
-                          <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <div key={product.id} className="group relative border-solid border-2 shadow-md">
+                          <div className=" aspect-w-1 w-full overflow-hidden rounded-md bg-white lg:aspect-none group-hover:opacity-75 lg:h-64">
                             <img
                               alt={product.imageAlt}
                               src={product.thumbnail}
-                              className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                              className="h-full w-full  object-center object-contain lg:h-full lg:w-full "
                             />
                           </div>
-                          <div className="mt-4 flex justify-between">
+                          
+                          <div className="flex justify-between px-2 py-2">
                             <div>
                               <h3 className="text-sm text-gray-700">
-                                <a href={product.title}>
+                                <a href={product.title} className="font-semibold">
                                   <span
                                     aria-hidden="true"
-                                    className="absolute inset-0"
+                                    className="absolute inset-0 "
                                   />
                                   {product.title}
                                 </a>

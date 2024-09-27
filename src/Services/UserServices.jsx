@@ -53,6 +53,7 @@ const userService = {
       },
       body: JSON.stringify(user),
     });
+    
     const data = await response.json();
     return data;
   },
