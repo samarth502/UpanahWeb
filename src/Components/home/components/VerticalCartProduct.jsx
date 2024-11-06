@@ -34,7 +34,7 @@ const VerticalCartProduct = ({ category, heading }) => {
   };
 
   return (
-    <div className="container mx-auto px-20 my-6 relative  rounded  ">
+    <div className="md:px-20 px-5 my-6 relative  rounded  ">
       <h2 className="text-2xl font-semibold py-4">{heading}</h2>
 
       <div
@@ -42,13 +42,13 @@ const VerticalCartProduct = ({ category, heading }) => {
         ref={scrollElement}
       >
         <button
-          className="bg-white shadow-md rounded-full p-1 absolute left-0 text-lg hidden md:block"
+          className="bg-white shadow-md rounded-full p-1 absolute left-20 text-lg hidden md:block"
           onClick={scrollLeft}
         >
           <FaAngleLeft />
         </button>
         <button
-          className="bg-white shadow-md rounded-full p-1 absolute right-0 text-lg hidden md:block"
+          className="bg-white shadow-md rounded-full p-1 absolute right-20 text-lg hidden md:block"
           onClick={scrollRight}
         >
           <FaAngleRight />
@@ -77,7 +77,7 @@ const VerticalCartProduct = ({ category, heading }) => {
                   to={"productdetails/" + product?._id}
                   className="w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] bg-white rounded-sm shadow "
                 >
-                  <div className="bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center">
+                  <div className=" h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center">
                     <img
                       src={product?.images[0]}
                       className="object-scale-down h-full hover:scale-110 transition-all"
@@ -98,7 +98,7 @@ const VerticalCartProduct = ({ category, heading }) => {
                         {displayINRCurrency(product?.price)}
                       </p>
                     </div>
-                    <button className="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-0.5 rounded-full">
+                    <button className="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-full">
                       Add to Cart
                     </button>
                   </div>

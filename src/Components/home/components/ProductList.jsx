@@ -120,22 +120,17 @@ function classNames(...classes) {
 
 export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState({
-    category: [],
-    brand: []
-  });
   const [products , setAllProducts] = useState([]);
   
-  const fetchFilteredProducts = async (filters) => {
-    console.log('Filters:', filters);
-    try {
-      const response = await ProductsServices.getProducts(filters);
-      console.log('Filtered Products Response:', response); 
-      setAllProducts(response);
-    } catch (error) {
-      console.error('Error fetching filtered products:', error);
-    }
-  };
+  //   console.log('Filters:', filters);
+  //   try {
+  //     const response = await ProductsServices.getProducts(filters);
+  //     console.log('Filtered Products Response:', response); 
+  //     setAllProducts(response);
+  //   } catch (error) {
+  //     console.error('Error fetching filtered products:', error);
+  //   }
+  // };
 
   const fetchAllProducts = async () =>{
     try {
@@ -155,21 +150,20 @@ export default function ProductList() {
   },[])
 
 
-  const handleFilter = (e, section, option) => {
-    console.log(section.id , option.value)
+  //   console.log(section.id , option.value)
 
-    const { checked } = e.target;
-    const newFilters = { ...selectedFilters };
+  //   const { checked } = e.target;
+  //   const newFilters = { ...selectedFilters };
     
-    if (checked) {
-      newFilters[section.id] = [...newFilters[section.id], option.value];
-    } else {
-      newFilters[section.id] = newFilters[section.id].filter(value => value !== option.value);
-    }
+  //   if (checked) {
+  //     newFilters[section.id] = [...newFilters[section.id], option.value];
+  //   } else {
+  //     newFilters[section.id] = newFilters[section.id].filter(value => value !== option.value);
+  //   }
 
-    setSelectedFilters(newFilters);
-    fetchFilteredProducts(newFilters);
-  };
+  //   setSelectedFilters(newFilters);
+  //   fetchFilteredProducts(newFilters);
+  // };
  
 
   return (

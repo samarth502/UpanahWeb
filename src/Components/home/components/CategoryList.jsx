@@ -7,7 +7,7 @@ const CategoryList = () => {
     const [loading, setLoading] = useState(false);
 
     const categoryLoading = new Array(13).fill(null);
-    console.log(categoryProduct,"kkkkkkkkkkkmmmmmmmmm")
+    // console.log(categoryProduct,"kkkkkkkkkkkmmmmmmmmm")
 
     const fetchCategoryProduct = async () => {
         setLoading(true);
@@ -34,7 +34,7 @@ const CategoryList = () => {
     }, []);
 
     return (
-        <div className="container mx-auto p-4 px-20">
+        <div className="p-4 md:px-20 px-5">
             <div className="flex items-center gap-4 justify-between overflow-scroll scrollbar-none">
                 {loading
                     ? categoryLoading.map((el, index) => (
@@ -43,13 +43,13 @@ const CategoryList = () => {
                               key={'categoryLoading' + index}
                           ></div>
                       ))
-                    : categoryProduct.map((product, index) => (
+                    : categoryProduct.map((product, index) => ( 
                           <Link
                               to={'/product-category?category=' + product?.category}
                               className="cursor-pointer"
                               key={index}
                           >
-                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden p-4 bg-slate-200 flex items-center justify-center">
+                              <div className="w-20 h-20 md:w-20 md:h-20 rounded-full overflow-hidden p-4 bg-slate-200 flex items-center justify-center">
                                   <img
                                       src={product?.thumbnail}
                                       alt={product?.category}
